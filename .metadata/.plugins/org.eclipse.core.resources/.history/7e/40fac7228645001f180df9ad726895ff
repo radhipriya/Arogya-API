@@ -1,0 +1,6 @@
+package ap.repository;
+
+public interface OrderDetailsRepository extends CrudRepository<ap.entities.OrderDetailsEO,String> {
+	
+
+}

@@ -1,0 +1,39 @@
+package ap.service.impl;
+
+import ap.services.List;
+import ap.services.ProductsRequests;
+import ap.services.ProductsRequestsEO;
+
+public class ProductsRequestsImpl implements ProductsRequests{
+
+	@Override
+	public List<ProductsRequestsEO> getAllProductsRequests() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addProductsRequestsDetails(ProductsRequestsEO proreqEORef) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateProductsRequestsDetails(ProductsRequestsEO proreqEORef) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public <ProductsRequestsEO> void findByRequestNoId(String reqnoRef) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteProductsRequestsDetails(String reqnoRef) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

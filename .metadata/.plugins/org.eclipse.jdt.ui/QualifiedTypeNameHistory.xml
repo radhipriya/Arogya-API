@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="ap.services.Employees"/>
+<fullyQualifiedTypeName name="ap.services.Feedback"/>
+<fullyQualifiedTypeName name="javax.persistence.Table"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="ap.entities.CustomersEO"/>
+<fullyQualifiedTypeName name="ap.entities.EmployeesEO"/>
+<fullyQualifiedTypeName name="ap.entities.FeedbackEO"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="ap.services.OrderDetails"/>
+<fullyQualifiedTypeName name="ap.entities.OrderDetailsEO"/>
+<fullyQualifiedTypeName name="ap.entities.Order_itemsEO"/>
+<fullyQualifiedTypeName name="ap.entities.PharmacyEO"/>
+<fullyQualifiedTypeName name="ap.services.Pharmacy"/>
+<fullyQualifiedTypeName name="ap.entities.ProductsEO"/>
+<fullyQualifiedTypeName name="ap.entities.ProductsRequestsEO"/>
+<fullyQualifiedTypeName name="ap.entities.SupplierEO"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Optional"/>
+<fullyQualifiedTypeName name="org.springframework.data.repository.CrudRepository"/>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
+<fullyQualifiedTypeName name="javax.persistence.Id"/>
+<fullyQualifiedTypeName name="javax.persistence.Column"/>
+<fullyQualifiedTypeName name="ap.services.ProductsRequests"/>
+<fullyQualifiedTypeName name="ap.services.Supplier"/>
+<fullyQualifiedTypeName name="ap.services.Customers"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+<fullyQualifiedTypeName name="ap.services.OrderItems"/>
+<fullyQualifiedTypeName name="ap.services.Products"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+</qualifiedTypeNameHistroy>

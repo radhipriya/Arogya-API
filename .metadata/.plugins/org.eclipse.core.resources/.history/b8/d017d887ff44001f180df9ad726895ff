@@ -1,0 +1,11 @@
+package ap.service.impl;
+
+import ap.services.EmployeesEO;
+
+public class EmployeesImpl implements Employees{
+	public void addEmployeesDetails(EmployeesEO cusEORef);
+	public void updateEmployeesDetails(EmployeesEO cusEORef);
+	public void Optional<EmployeesEO> findByEmployeesId(String employeeId);
+	public void deleteEmployeesDetails(String employeeId);
+
+}

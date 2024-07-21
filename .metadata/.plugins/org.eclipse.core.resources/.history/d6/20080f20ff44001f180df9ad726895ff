@@ -1,0 +1,10 @@
+package ap.services;
+
+public class Employees {
+	public List<EmployeesEO> getAllEmployeesDetails();
+	public void addEmployeesDetails(EmployeesEO cusEORef);
+	public void updateEmployeesDetails(EmployeesEO cusEORef);
+	public void Optional<EmployeesEO> findByEmployeesId(String employeeId);
+	public void deleteEmployeesDetails(String employeeId);
+}
+}

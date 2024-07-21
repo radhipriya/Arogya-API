@@ -1,0 +1,64 @@
+package ap.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import ap.entities.CustomersEO;
+import ap.services.Customers;
+
+@RestController
+@RequestMapping(value="/customers")
+@CrossOrigin("http://localhost:3000")
+public class CustomersController {
+	@Autowired
+	private Customers CustomersService;
+	
+	
+	@RequestMapping(value="/getAllCustomerDetails", method=RequestMethod.GET)
+	public List<CustomersEO> getAllCustomerDetails()
+	{
+		return CustomersService.getAllCustomerDetails();
+	}
+	
+	@PostMapping(value="/add-cusdetails")
+	public void addCustomerDetails(@RequestBody CustomersEO cusEORef)
+	{
+		CustomersService.addCustomerDetails(cusEORef);
+	}
+	
+	@RequestMapping(value="/update-cusdetails", method=RequestMethod.PUT)
+	public void updateCustomerDetails(@RequestBody CustomersEO cusEORef)
+	{
+		CustomersService.updateCustomerDetails(cusEORef);
+	}
+	
+	@RequestMapping(value="/findById-cusdetails/{customerId}" , method=RequestMethod.GET)
+	public Optional<CustomersEO> findByCustomerId(@PathVariable String customerId)
+	{
+		Optional<CustomersEO> custdetails = CustomersService.findByCustomerId(customerId);
+		return custdetails;
+	}
+	
+	@RequestMapping(value="/customer-login/{phoneNumber}", method=RequestMethod.GET)
+	public Optional<CustomersEO> findByPhoneNumber(@PathVariable Long phone,  @RequestParam String password)
+	{
+	    Optional<CustomersEO> custdetails = CustomersService.findByPhoneNumber(phone, password);
+	    return custdetails;
+	}
+	
+	@RequestMapping(value="/delete-cusdetails/{customerId}", method=RequestMethod.DELETE)
+	public void deleteCustomerDetails(@PathVariable String customerId){
+		CustomersService.deleteCustomerDetails(customerId);
+	}
+
+}

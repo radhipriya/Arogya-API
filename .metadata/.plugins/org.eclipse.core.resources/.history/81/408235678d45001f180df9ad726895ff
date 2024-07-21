@@ -1,0 +1,5 @@
+package ap.repository;
+
+public interface SupplierRepository extends CrudRepository<ap.entities.SupplierEO, String>{
+
+}

@@ -1,0 +1,10 @@
+package ap.services;
+
+public interface Supplier {
+	public List<SpplierEO> getAllSupplierDetails();
+	public void addSupplierDetails(SupplierEO cusEORef);
+	public void updateSupplierDetails(SupplierEO cusEORef);
+	public void Optional<SuppplierEO> findBySupplierId(String supplierId);
+	public void deleteSupplierDetails(String supplierId);
+
+}

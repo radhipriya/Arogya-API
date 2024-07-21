@@ -1,0 +1,48 @@
+package ap.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import ap.entities.Order_itemsEO;
+import ap.services.OrderItems;
+
+
+@Service
+public class OrderItemsImpl implements OrderItems{
+
+	@Override
+	public List<Order_itemsEO> getAllOrderitemsDetails() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addOrderitemsDetails(Order_itemsEO oritEORef) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateOrderitemsDetails(Order_itemsEO oritEORef) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Optional<Order_itemsEO> findByOrderitemsDetails(String order_itemsId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteOrderitemsDetails(String order_itemsId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+	
+}

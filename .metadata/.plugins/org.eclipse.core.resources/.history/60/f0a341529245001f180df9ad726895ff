@@ -1,0 +1,38 @@
+package ap.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import ap.entities.CustomersEO;
+import ap.services.Customers;
+
+public class CustomersController {
+	
+	private Customers CustomersService;
+	
+	public List<CustomersEO> getAllCustomerDetails()
+	{
+		return CustomersService.getAllCustomerDetails();
+	}
+	
+	public void addCustomerDetails(CustomersEO cusEORef)
+	{
+		CustomersService.addCustomerDetails(cusEORef);
+	}
+	
+	public void updateCustomerDetails(CustomersEO cusEORef)
+	{
+		CustomersService.updateCustomerDetails(cusEORef);
+	}
+	
+	public Optional<CustomersEO> findByCustomerId(String customerId)
+	{
+		Optional<CustomersEO> custdetails = CustomersService.findByCustomerId(customerId);
+		return custdetails;
+	}
+	
+	public void deleteCustomerDetails(String customerId){
+		CustomersService.updateCustomerDetails(cusEORef);
+	}
+
+}

@@ -1,0 +1,15 @@
+package ap.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import ap.entities.Order_itemsEO;
+
+public interface OrderItems {
+	public List<Order_itemsEO> getAllOrderitemsDetails();
+	public void addOrderitemsDetails(Order_itemsEO oritEORef);
+	public void updateOrderitemsDetails(Order_itemsEO oritEORef);
+	public Optional<Order_itemsEO> findByPharmacyId(String order_itemsId);
+	public void deleteOrderitemsDetails(String order_itemsId);
+
+}

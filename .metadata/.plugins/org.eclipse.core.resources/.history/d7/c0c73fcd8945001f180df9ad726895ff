@@ -1,0 +1,10 @@
+package ap.services;
+
+public interface Pharmacy {
+	public List<PharmacyEO> getAllPharmacyDetails();
+	public void addPharmacyDetails(PharmacyEO phEORef);
+	public void updatePharmacyDetails(PharmacyEO phEORef);
+	public void Optional<PharmacyEO> findByPharmacyId(String pharmacyId);
+	public void deletePharmacyDetails(String pharmacyId);
+
+}

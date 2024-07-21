@@ -1,0 +1,21 @@
+1721041858973	Rename package 'cps.controller'
+1721041885148	Rename package 'cps.entities'
+1721044231919	Rename compilation unit 'ProductRequests.java'
+1721044952118	Rename compilation unit 'Order_items.java'
+1721304633029	Rename compilation unit 'Customers.java'
+1721304684310	Rename compilation unit 'Customer.java'
+1721304801719	Rename compilation unit 'Employees.java'
+1721304880200	Delete element
+1721309017410	Delete element
+1721309056156	Delete element
+1721309537917	Delete element
+1721309755492	Rename compilation unit 'Products.java'
+1721309843088	Delete element
+1721353305129	Rename type 'CustomerEO'
+1721364871944	Rename type 'Product'
+1721365191050	Rename compilation unit 'ProductsRequests.java'
+1721365214498	Rename type 'ProductRequestsEO'
+1721365288221	Rename compilation unit 'ProductRequests.java'
+1721412821035	Rename package 'com.arogyapharmacy'
+1721452313487	Rename type 'Order_itemsEO'
+1721452329668	Rename type 'Order_itemsController'

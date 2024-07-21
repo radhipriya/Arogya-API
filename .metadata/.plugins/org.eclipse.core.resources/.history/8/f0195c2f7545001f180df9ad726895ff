@@ -1,0 +1,12 @@
+package ap.services;
+
+import java.util.List;
+
+public interface Employees {
+	public List<EmployeesEO> getAllEmployeesDetails();
+	public void addEmployeesDetails(EmployeesEO empEORef);
+	public void updateEmployeesDetails(EmployeesEO empEORef);
+	public void Optional<EmployeesEO> findByEmployeesId(String Id);
+	public void deleteEmployeesDetails(String Id);
+
+}

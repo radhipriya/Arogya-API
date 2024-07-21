@@ -1,0 +1,10 @@
+package ap.services;
+
+public interface ProductRequests {
+	public List<ProductRequestsEO> getAllSupplierDetails();
+	public void addProductsRequestsDetails(ProductRequestsEO proEORef);
+	public void updateProductRequestsDetails(ProductRequestsEO proEORef);
+	public void Optional<ProductRequestsEO> findByProductId(String productId);
+	public void deleteProductDetails(String productId);
+
+}

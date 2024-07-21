@@ -1,0 +1,5 @@
+package ap.repository;
+
+public interface FeedbackRepository extends CrudRepository<ap.entities.FeedbackEO,String>{
+
+}

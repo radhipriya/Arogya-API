@@ -1,0 +1,5 @@
+package ap.repository;
+
+public interface PharmacyRepository extends CrudRepository<ap.entities.PharmacyEO, String> {
+
+}

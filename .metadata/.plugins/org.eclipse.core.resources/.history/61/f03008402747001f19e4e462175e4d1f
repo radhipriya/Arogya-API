@@ -1,0 +1,9 @@
+package ap.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface CustomersRepository extends CrudRepository<ap.entities.CustomersEO,String>{
+	
+	ap.entities.CustomersEO findByPhoneNumber(Long phoneNumber);
+
+}

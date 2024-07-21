@@ -1,0 +1,10 @@
+package ap.services;
+
+public interface Feedback {
+	public List<FeedbackEO> getAllFeedbackDetails();
+	public void addFeedbackDetails(FeedbackEO fedEORef);
+	public void updateFeedbackDetails(FeedbackEO fedEORef);
+	public void Optional<FeedbackEO> findByFeedbackId(String Id);
+	public void deleteFeedbackDetails(String Id);
+}
+}

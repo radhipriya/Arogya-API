@@ -1,0 +1,11 @@
+package ap.services;
+
+public interface OrderDetails {
+	public List<OrderDetailsEO> getAllOrderDetails();
+	public void addOrderDetails(OrderDetailsEO orEORef);
+	public void updateOrderDetails(OrderDetailsEO orEORef);
+	public void Optional<OrderDetailsEO> findByOrderId(String OrderId);
+	public void deleteOrderDetails(String OrderId);
+}
+
+}

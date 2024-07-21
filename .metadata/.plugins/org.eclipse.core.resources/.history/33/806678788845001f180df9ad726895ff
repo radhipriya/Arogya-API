@@ -1,0 +1,39 @@
+package ap.service.impl;
+
+import ap.services.List;
+import ap.services.OrderItems;
+import ap.services.Order_itemsEO;
+
+public class OrderItemsImpl implements OrderItems{
+
+	@Override
+	public List<Order_itemsEO> getAllOrderitemsDetails() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addOrderitemsDetails(Order_itemsEO oritEORef) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateOrderitemsDetails(Order_itemsEO oritEORef) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public <Order_itemsEO> void findByPharmacyId(String order_itemsId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteOrderitemsDetails(String order_itemsId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

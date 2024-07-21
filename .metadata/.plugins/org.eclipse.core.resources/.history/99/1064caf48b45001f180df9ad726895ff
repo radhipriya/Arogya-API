@@ -1,0 +1,14 @@
+package ap.services;
+
+import java.util.List;
+
+import ap.entities.ProductsRequestsEO;
+
+public interface ProductsRequests {
+	public List<ProductsRequestsEO> getAllProductsRequests();
+	public void addProductRequestsDetails(ProductsRequestsEO proreqEORef);
+	public void updateProductRequestsDetails(ProductsRequestsEO proreqEORef);
+	public Optional<ProductsRequestsEO> findByRequestNoId(String reqnoRef);
+	public void deleteProductRequestsDetails(String reqnoRef);
+
+}

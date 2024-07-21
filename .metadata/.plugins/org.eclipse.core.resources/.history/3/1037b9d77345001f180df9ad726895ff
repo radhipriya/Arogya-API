@@ -1,0 +1,11 @@
+package ap.services;
+
+
+
+public interface Customers {
+	public List<CustomerEO> getAllCustomerDetails();
+	public void addCustomerDetails(CustomerEO cusEORef);
+	public void updateCustomerDetails(CustomerEO cusEORef);
+	public void Optional<CustomerEO> findByCustomerId(String customerId);
+	public void deleteCustomerDetails(String customerId);
+}

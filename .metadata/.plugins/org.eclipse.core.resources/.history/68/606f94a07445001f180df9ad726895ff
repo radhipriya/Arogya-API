@@ -1,0 +1,5 @@
+package ap.repository;
+
+public interface CustomersRepository extends CrudRepository<ap.entities.CustomersEO,String>{
+
+}

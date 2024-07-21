@@ -1,0 +1,77 @@
+package ap.entities;
+
+public class ProductRequestsEO {
+	
+	private String request_number;
+	private String supplier_id;
+	private String pharmacy_id;
+	private String product_id;
+	private int quantity;
+	
+	
+	public ProductRequestsEO() {
+		super();
+	}
+
+
+	public ProductRequestsEO(String request_number, String supplier_id, String pharmacy_id, String product_id,
+			int quantity) {
+		super();
+		this.request_number = request_number;
+		this.supplier_id = supplier_id;
+		this.pharmacy_id = pharmacy_id;
+		this.product_id = product_id;
+		this.quantity = quantity;
+	}
+
+
+	public String getRequest_number() {
+		return request_number;
+	}
+
+
+	public void setRequest_number(String request_number) {
+		this.request_number = request_number;
+	}
+
+
+	public String getSupplier_id() {
+		return supplier_id;
+	}
+
+
+	public void setSupplier_id(String supplier_id) {
+		this.supplier_id = supplier_id;
+	}
+
+
+	public String getPharmacy_id() {
+		return pharmacy_id;
+	}
+
+
+	public void setPharmacy_id(String pharmacy_id) {
+		this.pharmacy_id = pharmacy_id;
+	}
+
+
+	public String getProduct_id() {
+		return product_id;
+	}
+
+
+	public void setProduct_id(String product_id) {
+		this.product_id = product_id;
+	}
+
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+}

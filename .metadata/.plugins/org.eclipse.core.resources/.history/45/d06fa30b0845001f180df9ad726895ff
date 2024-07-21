@@ -1,0 +1,17 @@
+package ap.service.impl;
+
+import ap.services.Employees;
+import ap.services.EmployeesEO;
+import ap.services.FeedbackEO;
+import ap.services.List;
+
+public class EmployeesImpl implements Employees{
+	public List<FeedEO> getAllFeedbackDetails();
+	public void addFeedbackDetails(FeedbackEO fedEORef);
+	public void updateFeedbackDetails(FeedbackEO fedEORef);
+	public void Optional<FeedbackEO> findByFeedbackId(String Id);
+	public void deleteFeedbackDetails(String Id); 
+	
+	
+
+}

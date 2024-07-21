@@ -1,0 +1,5 @@
+package ap.repository;
+
+public interface EmployeesRepository extends CrudRepository<ap.entities.EmployeesEO, String>{
+
+}

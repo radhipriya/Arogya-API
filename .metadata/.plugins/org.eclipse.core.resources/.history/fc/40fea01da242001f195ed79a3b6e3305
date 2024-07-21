@@ -1,0 +1,10 @@
+package ap.services;
+
+public interface Order_items {
+	public List<Order_itemsEO> getAllOrderitemsDetails();
+	public void addOrderitemsDetails(Order_itemsEO oritEORef);
+	public void updateOrderitemsDetails(Order_itemsEO oritEORef);
+	public void Optional<Order_itemsEO> findByPharmacyId(String order_itemsId);
+	public void deleteOrderitemsDetails(String order_itemsId);
+
+}
