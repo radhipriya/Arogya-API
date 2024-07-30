@@ -4,17 +4,26 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
+@Table(name="FEEDBACK")
 public class FeedbackEO {
 	@Id
 	@Column(name="ID")
+	@GeneratedValue(generator = "custom-generator")
+    @GenericGenerator(name = "custom-generator", strategy = "ap.util.CustomStringIdGenerator")
 	private String id;
 	
 	@Column(name="CUSTOMER_ID")
 	private String customer_id;
 	
+	@CreationTimestamp
 	@Column(name="GIVEN_ON")
 	private Date date;
 	

@@ -2,12 +2,19 @@ package ap.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
+@Table(name="PRODUCTS_REQUESTS")
 public class ProductsRequestsEO {
 	@Id
 	@Column(name="REQUEST_NUMBER")
+	@GeneratedValue(generator = "custom-generator")
+    @GenericGenerator(name = "custom-generator", strategy = "ap.util.CustomStringIdGenerator")
 	private String request_number;
 	
 	@Column(name="SUPPLIER_ID")
@@ -23,27 +30,26 @@ public class ProductsRequestsEO {
 	private String status;
 	
 	@Column(name="QUANTITY")
-	private int quantity;
+	private Long quantity;
 	
-	
-	
+	@Column(name="EMPLOYEE_ID")
+	private String employee_id;
 	
 	public ProductsRequestsEO() {
 		super();
 	}
-
-
+	
 	public ProductsRequestsEO(String request_number, String supplier_id, String pharmacy_id, String product_id,
-			int quantity, String status) {
+			String status, Long quantity, String employee_id) {
 		super();
 		this.request_number = request_number;
 		this.supplier_id = supplier_id;
 		this.pharmacy_id = pharmacy_id;
 		this.product_id = product_id;
-		this.quantity = quantity;
 		this.status = status;
+		this.quantity = quantity;
+		this.employee_id = employee_id;
 	}
-
 
 	public String getRequest_number() {
 		return request_number;
@@ -95,13 +101,20 @@ public class ProductsRequestsEO {
 	}
 
 
-	public int getQuantity() {
+	public Long getQuantity() {
 		return quantity;
 	}
 
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Long quantity) {
 		this.quantity = quantity;
 	}
 
+	public String getEmployee_id() {
+		return employee_id;
+	}
+
+	public void setEmployee_id(String employee_id) {
+		this.employee_id = employee_id;
+	}
 }

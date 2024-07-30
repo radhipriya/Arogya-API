@@ -1,0 +1,26 @@
+package ap.util;
+
+import javax.sql.DataSource;
+import java.io.Serializable;
+import org.hibernate.HibernateException;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
+import org.hibernate.id.IdentifierGenerator;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+public class CustomOrderIdGenerator implements IdentifierGenerator {
+
+    private JdbcTemplate jdbcTemplate;
+
+    public CustomOrderIdGenerator(DataSource dataSource) {
+        this.jdbcTemplate = new JdbcTemplate(dataSource);
+    }
+
+    @Override
+    public Serializable generate(SharedSessionContractImplementor session, Object obj) throws HibernateException {
+        Long sequenceValue = jdbcTemplate.queryForObject("SELECT AP.ORDER_ID_SEQ.NEXTVAL FROM DUAL", Long.class);
+
+        // Generate the Order_id in the desired format
+        String orderId = "ORD-" + String.format("%03d", sequenceValue);
+        return orderId;
+    }
+}

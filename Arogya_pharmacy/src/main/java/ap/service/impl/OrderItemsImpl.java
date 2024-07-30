@@ -3,14 +3,19 @@ package ap.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ap.entities.OrderItemsEO;
+import ap.repository.OrderItemsRepository;
 import ap.services.OrderItems;
 
 
 @Service
 public class OrderItemsImpl implements OrderItems{
+	
+	@Autowired
+	OrderItemsRepository orderitemsrepositoryref;
 
 	@Override
 	public List<OrderItemsEO> getAllOrderitemsDetails() {
@@ -41,8 +46,10 @@ public class OrderItemsImpl implements OrderItems{
 		// TODO Auto-generated method stub
 		
 	}
-
 	
-
+	@Override
+	public List<OrderItemsEO> findByOrderIDDetails(String order_Id) {
+		return orderitemsrepositoryref.findByOrderIDDetails(order_Id);
+	}
 	
 }

@@ -17,8 +17,6 @@ import org.hibernate.annotations.GenericGenerator;
 public class CustomersEO implements Serializable{
 	@Id
 	@Column(name="CUSTOMER_ID")
-//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUSTOMER_ID_SEQ_GEN")
-//  @SequenceGenerator(name = "CUSTOMER_ID_SEQ_GEN", sequenceName = "CUSTOMER_ID_SEQ", allocationSize = 1)
 	@GeneratedValue(generator = "custom-generator")
     @GenericGenerator(name = "custom-generator", strategy = "ap.util.CustomStringIdGenerator")
 	private String customer_id;

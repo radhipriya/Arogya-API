@@ -49,8 +49,15 @@ public class CustomersController {
 		return custdetails;
 	}
 	
+	@RequestMapping(value="/findById-cusdetails/{customerId}/{password}" , method=RequestMethod.GET)
+	public Optional<CustomersEO> findByCustomerIdAndPassword(@PathVariable String customerId, @RequestParam String password)
+	{
+	    Optional<CustomersEO> custdetails = CustomersService.findByCustomerIdAndPassword(customerId, password);
+	    return custdetails;
+	}
+	
 	@RequestMapping(value="/customer-details/{phone}", method=RequestMethod.GET)
-	public Optional<CustomersEO> findByPhoneNumber(@PathVariable("phone") Long phone,  @RequestParam String password)
+	public Optional<CustomersEO> findByPhoneNumber(@PathVariable("phone") String phone,  @RequestParam String password)
 	{
 	    Optional<CustomersEO> custdetails = CustomersService.findByPhoneAndPassword(phone, password);
 	    return custdetails;

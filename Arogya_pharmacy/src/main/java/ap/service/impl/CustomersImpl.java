@@ -44,8 +44,8 @@ public class CustomersImpl implements Customers   {
 		
 	}
 	
-	public Optional<CustomersEO> findByPhoneAndPassword(Long phone, String password) {
-		Optional<CustomersEO> customerdetails = customersrepositoryref.findByPhoneAndPassword(phone, password);
+	public Optional<CustomersEO> findByCustomerIdAndPassword(String customerId, String password) {
+		Optional<CustomersEO> customerdetails = customersrepositoryref.findByCustomerIdAndPassword(customerId, password);
 		return customerdetails;
 	}
 
@@ -55,7 +55,10 @@ public class CustomersImpl implements Customers   {
 		customersrepositoryref.deleteById(customerId);
 	}
 
-	
-	
+	@Override
+	public Optional<CustomersEO> findByPhoneAndPassword(String phone, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

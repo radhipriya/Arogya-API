@@ -1,0 +1,60 @@
+package ap.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import ap.entities.FeedbackEO;
+import ap.entities.OrderDetailsEO;
+import ap.services.OrderDetails;
+
+@RestController
+@RequestMapping(value="/orders")
+@CrossOrigin("http://localhost:3000")
+public class OrderDetailsController {
+
+	@Autowired
+	private OrderDetails OrderDetailsService;
+	
+    private static final Logger LOGGER = LoggerFactory.getLogger(OrderDetailsController.class);
+	
+	@RequestMapping(value="/getAllOrderDetails", method=RequestMethod.GET)
+	public List<OrderDetailsEO> getAllOrderDetails()
+	{
+		return OrderDetailsService.getAllOrderDetails();
+	}
+	
+	@RequestMapping(value="/add-orderdetails", method=RequestMethod.POST)
+	public void addOrderDetails(@RequestBody OrderDetailsEO orEORef)
+	{
+		OrderDetailsService.addOrderDetails(orEORef);
+	}
+
+	@RequestMapping(value="/update-orderdetails", method=RequestMethod.PUT)
+	public void updateOrderDetails(@RequestBody OrderDetailsEO orEORef)
+	{
+		OrderDetailsService.updateOrderDetails(orEORef);
+	}
+	
+	@RequestMapping(value="/findById-orderdetails/{Id}", method=RequestMethod.PUT)
+	public Optional<OrderDetailsEO> findByOrderId(@PathVariable String OrderId)
+	{
+		Optional<OrderDetailsEO> orderdetails = OrderDetailsService.findByOrderId(OrderId);
+		return orderdetails;
+	}
+	
+	@RequestMapping(value="/delete-orderdetails/{Id}", method=RequestMethod.DELETE)
+	public void deleteOrderDetails(@PathVariable String OrderId){
+		OrderDetailsService.deleteOrderDetails(OrderId);
+	}
+
+}

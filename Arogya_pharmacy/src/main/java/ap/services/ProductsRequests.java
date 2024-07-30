@@ -7,6 +7,7 @@ import ap.entities.ProductsRequestsEO;
 
 public interface ProductsRequests {
 	public List<ProductsRequestsEO> getAllProductsRequests();
+	public List<ProductsRequestsEO> getProductsRequestsBySupplier(String supplierId);
 	public void addProductRequestsDetails(ProductsRequestsEO proreqEORef);
 	public void updateProductRequestsDetails(ProductsRequestsEO proreqEORef);
 	public Optional<ProductsRequestsEO> findByRequestNoId(String product_requesId);

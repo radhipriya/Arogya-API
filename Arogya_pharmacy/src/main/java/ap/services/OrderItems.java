@@ -7,6 +7,7 @@ import ap.entities.OrderItemsEO;
 
 public interface OrderItems {
 	public List<OrderItemsEO> getAllOrderitemsDetails();
+	public List<OrderItemsEO> findByOrderIDDetails(String order_Id);
 	public void addOrderitemsDetails(OrderItemsEO oritEORef);
 	public void updateOrderitemsDetails(OrderItemsEO oritEORef);
 	public Optional<OrderItemsEO> findByOrderitemsDetails(String order_itemsId);

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ import ap.services.OrderItems;
 
 @RestController
 @RequestMapping("/orderitems")
-
+@CrossOrigin("http://localhost:3000")
 public class OrderItemsController {
 	
 	@Autowired
@@ -26,6 +27,12 @@ public class OrderItemsController {
 	public List<OrderItemsEO> getAllOrderitemsDetails()
 	{
 		return OrderItemsService.getAllOrderitemsDetails();
+	}
+	
+	@RequestMapping(value="/findByOrderId/{order_Id}", method=RequestMethod.GET)
+	public List<OrderItemsEO> findByOrderIDDetails(@PathVariable String order_Id)
+	{
+		return OrderItemsService.findByOrderIDDetails(order_Id);
 	}
 	
 	@RequestMapping(value="/add-order_items", method=RequestMethod.POST)

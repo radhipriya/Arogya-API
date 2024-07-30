@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import ap.services.ProductsRequests;
 
 @RestController
 @RequestMapping("/productsrequest")
+@CrossOrigin("http://localhost:3000")
 public class ProductsRequestsController {
 	@Autowired
 	private ProductsRequests ProductsRequestsService;
@@ -24,6 +26,12 @@ public class ProductsRequestsController {
 	public List<ProductsRequestsEO> getAllProductsRequests()
 	{
 		return ProductsRequestsService.getAllProductsRequests();
+	}
+	
+	@RequestMapping(value="/getProductsBySupplier/{supplierId}", method=RequestMethod.GET)
+	public List<ProductsRequestsEO> getProductsRequestsBySupplier(@PathVariable String supplierId)
+	{
+		return ProductsRequestsService.getProductsRequestsBySupplier(supplierId);
 	}
 	
 	@RequestMapping(value="/add-proreqdetails", method=RequestMethod.POST)
@@ -38,14 +46,14 @@ public class ProductsRequestsController {
 		ProductsRequestsService.updateProductRequestsDetails(proreqEORef);
 	}
 	
-	@RequestMapping(value="/findById-proreqdetails/{customerId}", method=RequestMethod.PUT)
+	@RequestMapping(value="/findById-proreqdetails/{product_requesId}", method=RequestMethod.GET)
 	public Optional<ProductsRequestsEO> findByRequestNoId(@PathVariable String product_requesId)
 	{
 		Optional<ProductsRequestsEO> proreqdetails = ProductsRequestsService.findByRequestNoId(product_requesId);
 		return proreqdetails;
 	}
 	
-	@RequestMapping(value="/delete-proreqdetails/{customerId}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/delete-proreqdetails/{product_requesId}", method=RequestMethod.DELETE)
 	public void deleteProductRequestsDetails(@PathVariable String product_requesId)
 	{
 		ProductsRequestsService.deleteProductRequestsDetails(product_requesId);

@@ -1,0 +1,57 @@
+package ap.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import ap.controller.ProductsController;
+import ap.entities.ProductsEO;
+import ap.repository.ProductsRepository;
+import ap.services.Products;
+
+import java.util.logging.Logger;
+
+@Service
+public class ProductsImpl implements Products{
+	@Autowired
+	ProductsRepository productssrepositoryref;
+	
+	private static final Logger LOGGER = Logger.getLogger(ProductsController.class.getName());
+
+	@Override
+	public void addProductsDetails(ProductsEO proEORef) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateProductDetails(ProductsEO proEORef) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Optional<ProductsEO> findByProductId(String productId) {
+		// TODO Auto-generated method stub
+		Optional<ProductsEO> productdetails = productssrepositoryref.findById(productId);
+		return productdetails;
+	}
+
+	@Override
+	public void deleteProductDetails(String productId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<ProductsEO> getAllProductsDetails() {
+		List<ProductsEO> returnedClaimQueryList = new ArrayList();
+		returnedClaimQueryList = (List<ProductsEO>) productssrepositoryref.findAll();
+		return returnedClaimQueryList;
+
+	}
+
+}

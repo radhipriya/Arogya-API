@@ -1,0 +1,28 @@
+package ap.util;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
+import org.hibernate.id.IdentifierGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+ 
+import java.io.Serializable;
+ 
+@Component
+public class CustomOrderIdGenerator implements IdentifierGenerator {
+ 
+    private static final String SEQUENCE_NAME = "ORDER_ID_SEQ";
+    private static final String PREFIX = "ORD";
+    private final JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    public CustomOrderIdGenerator(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+    
+    @Override
+    public Serializable generate(SharedSessionContractImplementor session, Object object) {
+    	Long nextValue = jdbcTemplate.queryForObject("SELECT " + SEQUENCE_NAME + ".NEXTVAL FROM DUAL", Long.class);
+        String formattedId = String.format("%s%03d", PREFIX, nextValue);
+        return formattedId;
+    }
+}

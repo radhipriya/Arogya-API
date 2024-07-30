@@ -1,0 +1,12 @@
+package ap.repository;
+
+import java.util.Optional;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+import ap.entities.FeedbackEO;
+
+public interface FeedbackRepository extends CrudRepository<ap.entities.FeedbackEO,String>{
+
+	Optional<FeedbackEO> findFeedbackByCustomerID(@Param("customerId") String customerId);
+}

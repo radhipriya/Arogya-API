@@ -2,22 +2,29 @@ package ap.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
+@Table(name="ORDER_ITEMS")
 public class OrderItemsEO {
 	@Id
 	@Column(name="ORDER_ITEM_ID")
+	@GeneratedValue(generator = "custom-generator")
+    @GenericGenerator(name = "custom-generator", strategy = "ap.util.CustomStringIdGenerator")
 	private String order_item_id;
 	
 	@Column(name="ORDER_ID")
 	private String order_id;
 	
 	@Column(name="QUANTITY")
-	private int quantity;
+	private Long quantity;
 	
 	@Column(name="TOTAL_ITEM_PRICE")
-	private int total_item_price;
+	private Double total_item_price;
 	
 	@Column(name="PRODUCT_ID")
 	private String product_id;
@@ -28,7 +35,7 @@ public class OrderItemsEO {
 	}
 
 
-	public OrderItemsEO(String order_item_id, String order_id, int quantity, int total_item_price, String product_id) {
+	public OrderItemsEO(String order_item_id, String order_id, Long quantity, Double total_item_price, String product_id) {
 		super();
 		this.order_item_id = order_item_id;
 		this.order_id = order_id;
@@ -58,22 +65,22 @@ public class OrderItemsEO {
 	}
 
 
-	public int getQuantity() {
+	public Long getQuantity() {
 		return quantity;
 	}
 
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Long quantity) {
 		this.quantity = quantity;
 	}
 
 
-	public int getTotal_item_price() {
+	public Double getTotal_item_price() {
 		return total_item_price;
 	}
 
 
-	public void setTotal_item_price(int total_item_price) {
+	public void setTotal_item_price(Double total_item_price) {
 		this.total_item_price = total_item_price;
 	}
 

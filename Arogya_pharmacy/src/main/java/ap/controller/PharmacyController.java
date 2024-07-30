@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import ap.services.Pharmacy;
 
 @RestController
 @RequestMapping("/Pharmacy")
+@CrossOrigin("http://localhost:3000")
 public class PharmacyController {
 	@Autowired
 	private Pharmacy PharmacyService;
@@ -39,7 +41,7 @@ public class PharmacyController {
 		PharmacyService.updatePharmacyDetails(phEORef);
 	}
 	
-	@RequestMapping(value="/findById-pharmacy/{pharmacyId}", method=RequestMethod.PUT)
+	@RequestMapping(value="/findById-pharmacy/{pharmacyId}", method=RequestMethod.GET)
 	public Optional<PharmacyEO> findByPharmacyId(@PathVariable String pharmacyId)
 	{
 		Optional<PharmacyEO> pharmacy = PharmacyService.findByPharmacyId(pharmacyId);

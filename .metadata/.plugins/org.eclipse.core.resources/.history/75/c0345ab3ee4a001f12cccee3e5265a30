@@ -1,0 +1,17 @@
+package ap.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+import ap.entities.OrderDetailsEO;
+
+public interface OrderDetailsRepository extends CrudRepository<ap.entities.OrderDetailsEO,String> {
+	
+	@Query("SELECT o FROM OrderDetailsEO o WHERE o.customer_id = :customerId")
+	List<OrderDetailsEO> findByCustomerId(@Param("customerId") String customerId);
+
+
+}

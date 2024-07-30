@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,12 +14,21 @@ import org.springframework.web.bind.annotation.RestController;
 import ap.entities.FeedbackEO;
 import ap.services.Feedback;
 
+
+
+import org.slf4j.Logger;
+
+import org.slf4j.LoggerFactory;
+
 @RestController
 @RequestMapping("/feedback")
+@CrossOrigin("http://localhost:3000")
 public class FeedbackController {
 	@Autowired
 	private Feedback FeedbackService;
 	
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(FeedbackController.class);
 	
 	@RequestMapping(value="/getAllFeedbackDetails", method=RequestMethod.GET)
 	public List<FeedbackEO> getAllFeedbackDetails()
@@ -26,9 +36,18 @@ public class FeedbackController {
 		return FeedbackService.getAllFeedbackDetails();
 	}
 	
+	@RequestMapping(value="/getFeedbackByCustID/{customerId}", method=RequestMethod.GET)
+	public List<FeedbackEO> getFeedbackByCustID(@PathVariable String customerId)
+	{
+		LOGGER.info("Getting feedback by customer ID: {}", customerId);
+		List<FeedbackEO> feedbackdetails = FeedbackService.getFeedbackByCustID(customerId); 
+		return feedbackdetails;
+	}
+	
 	@RequestMapping(value="/add-feedback", method=RequestMethod.POST)
 	public void addFeedbackDetails(@RequestBody FeedbackEO fedEORef)
 	{
+		LOGGER.info("Posting feedback by customer ID: {}", fedEORef);
 		FeedbackService.addFeedbackDetails(fedEORef);
 	}
 	

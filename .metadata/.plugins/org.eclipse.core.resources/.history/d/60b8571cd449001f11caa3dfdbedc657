@@ -1,0 +1,52 @@
+package ap.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import ap.entities.EmployeesEO;
+import ap.entities.OrderDetailsEO;
+import ap.repository.OrderDetailsRepository;
+import ap.services.OrderDetails;
+
+@Service
+public class OrderDetailsImpl implements OrderDetails {
+	
+	@Autowired
+	OrderDetailsRepository orderdetailsrepositoryref;
+
+	@Override
+	public List<OrderDetailsEO> getAllOrderDetails() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public OrderDetailsEO addOrderDetails(OrderDetailsEO orEORef) {
+		// TODO Auto-generated method stub
+		OrderDetailsEO orderdetails = orderdetailsrepositoryref.save(orEORef);
+		return orderdetails;
+	}
+
+	@Override
+	public void updateOrderDetails(OrderDetailsEO orEORef) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Optional<OrderDetailsEO> findByOrderId(String OrderId) {
+		Optional<OrderDetailsEO> orderdetails = orderdetailsrepositoryref.findByOrderId(OrderId);
+		return orderdetails;
+		
+	}
+
+	@Override
+	public void deleteOrderDetails(String OrderId) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

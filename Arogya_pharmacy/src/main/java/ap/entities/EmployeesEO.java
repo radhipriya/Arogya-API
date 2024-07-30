@@ -2,12 +2,19 @@ package ap.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
+@Table(name ="EMPLOYEES")
 public class EmployeesEO {
 	@Id
 	@Column(name="EMPLOYEE_ID")
+	@GeneratedValue(generator = "custom-generator")
+    @GenericGenerator(name = "custom-generator", strategy = "ap.util.CustomStringIdGenerator")
 	private String employee_id;
 	
 	@Column(name="FIRST_NAME")

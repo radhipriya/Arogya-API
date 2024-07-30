@@ -1,0 +1,43 @@
+package ap.util;
+import org.hibernate.HibernateException;
+import org.hibernate.engine.spi.SessionImplementor;
+import org.hibernate.id.IdentifierGenerator;
+
+import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class CustomOrderIdGenerator implements IdentifierGenerator {
+
+    private static final String SELECT_MAX_ORDER_ID = "SELECT MAX(order_id) FROM orders";
+
+    public Serializable generate(SessionImplementor session, Object object) throws HibernateException {
+        Connection connection = session.connection();
+        try {
+            int nextOrderId = getNextOrderId(connection);
+            return "ORD" + String.format("%03d", nextOrderId);
+        } catch (SQLException e) {
+            throw new HibernateException("Error generating order ID", e);
+        }
+    }
+
+    private int getNextOrderId(Connection connection) throws SQLException {
+        int nextOrderId;
+        try (PreparedStatement stmt = connection.prepareStatement(SELECT_MAX_ORDER_ID);
+             ResultSet resultSet = stmt.executeQuery()) {
+            if (resultSet.next()) {
+                nextOrderId = resultSet.getInt(1);
+                if (nextOrderId == 0) {
+                    nextOrderId = 1;
+                } else {
+                    nextOrderId++;
+                }
+            } else {
+                nextOrderId = 1;
+            }
+        }
+        return nextOrderId;
+    }
+}

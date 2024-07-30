@@ -1,0 +1,13 @@
+package ap.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
+
+import ap.entities.CustomersEO;
+
+public interface EmployeesRepository extends CrudRepository<ap.entities.EmployeesEO, String>{
+
+	Optional<CustomersEO> findByEmployeeIdAndPassword(String employeeId, String password);
+
+}

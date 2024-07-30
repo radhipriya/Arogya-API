@@ -2,13 +2,20 @@ package ap.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
+@Table(name="SUPPLIER")
 public class SupplierEO {
 	
 	@Id
 	@Column(name="SUPPLIER_ID")
+	@GeneratedValue(generator = "custom-generator")
+    @GenericGenerator(name = "custom-generator", strategy = "ap.util.CustomStringIdGenerator")
 	private String supplier_id;
 	
 	@Column(name="BRANCH")
@@ -18,7 +25,7 @@ public class SupplierEO {
 	private String address;
 	
 	@Column(name="PHONE")
-	private int phone;
+	private Long phone;
 	
 	@Column(name="EMAIL")
 	private String email;
@@ -26,7 +33,7 @@ public class SupplierEO {
 	@Column(name="PASSWORD")
 	private String password;
 	
-	public SupplierEO(String supplier_id, String branch, String address, int phone, String email, String password) {
+	public SupplierEO(String supplier_id, String branch, String address, Long phone, String email, String password) {
 		super();
 		this.supplier_id = supplier_id;
 		this.branch = branch;
@@ -64,11 +71,11 @@ public class SupplierEO {
 		this.address = address;
 	}
 
-	public int getPhone() {
+	public Long getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(Long phone) {
 		this.phone = phone;
 	}
 

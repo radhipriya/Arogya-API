@@ -11,5 +11,6 @@ public interface Supplier {
 	public void updateSupplierDetails(SupplierEO supEORef);
 	public Optional<SupplierEO> findBySupplierId(String supplierId);
 	public void deleteSupplierDetails(String supplierId);
+	public Optional<SupplierEO> findBySupplierIdAndPassword(String supplierId, String password);
 
 }

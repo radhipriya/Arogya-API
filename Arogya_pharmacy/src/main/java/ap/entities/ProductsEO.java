@@ -1,13 +1,29 @@
 package ap.entities;
 
+import java.io.Serializable;
+import java.util.Arrays;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 
 @Entity
-public class ProductsEO {
+@Table(name ="PRODUCTS")
+public class ProductsEO implements Serializable {
+	
+
+
 	@Id
 	@Column(name="PRODUCT_ID")
+	@GeneratedValue(generator = "custom-generator")
+    @GenericGenerator(name = "custom-generator", strategy = "ap.util.CustomStringIdGenerator")
 	private String product_id;
 	
 	@Column(name="PRODUCT_NAME")
@@ -17,36 +33,37 @@ public class ProductsEO {
 	private String product_desc;
 	
 	@Column(name="CATEGORY")
-	private String cateogry;
+	private String category;
 	
 	@Column(name="PRICE")
 	private String price;
 	
 	@Column(name="QUANTITY_INSTOCK")
-	private int quantity_instock;
+	private Long quantity_instock;
 	
 	@Column(name="IMAGE")
 	private byte[] image;
 	
-	
+	@Column(name="GST")
+	private Long gst;
+
 	public ProductsEO() {
 		super();
 	}
 
-
-	public ProductsEO(String product_id, String product_name, String product_desc, String cateogry, String price,
-			int quantity_instock, byte[] image) {
+	public ProductsEO(String product_id, String product_name, String product_desc, String category, String price,
+			Long quantity_instock, byte[] image, Long gst) {
 		super();
 		this.product_id = product_id;
 		this.product_name = product_name;
 		this.product_desc = product_desc;
-		this.cateogry = cateogry;
+		this.category = category;
 		this.price = price;
 		this.quantity_instock = quantity_instock;
 		this.image = image;
+		this.gst = gst;
 	}
-
-
+	
 	public String getProduct_id() {
 		return product_id;
 	}
@@ -77,13 +94,13 @@ public class ProductsEO {
 	}
 
 
-	public String getCateogry() {
-		return cateogry;
+	public String getCategory() {
+		return category;
 	}
 
 
-	public void setCateogry(String cateogry) {
-		this.cateogry = cateogry;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 
@@ -97,12 +114,12 @@ public class ProductsEO {
 	}
 
 
-	public int getQuantity_instock() {
+	public Long getQuantity_instock() {
 		return quantity_instock;
 	}
 
 
-	public void setQuantity_instock(int quantity_instock) {
+	public void setQuantity_instock(Long quantity_instock) {
 		this.quantity_instock = quantity_instock;
 	}
 
@@ -114,6 +131,20 @@ public class ProductsEO {
 
 	public void setImage(byte[] image) {
 		this.image = image;
-	}	
+	}
+
+	public Long getGst() {
+		return gst;
+	}
+
+	public void setGst(Long gst) {
+		this.gst = gst;
+	}
+	@Override
+	public String toString() {
+		return "ProductsEO [product_id=" + product_id + ", product_name=" + product_name + ", product_desc="
+				+ product_desc + ", category=" + category + ", price=" + price + ", quantity_instock="
+				+ quantity_instock + ", image=" + Arrays.toString(image) + "]";
+	}
 
 }
